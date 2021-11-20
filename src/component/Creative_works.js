@@ -1,9 +1,8 @@
-import React, { useState }  from 'react'
-import { NavLink, Link } from 'react-router-dom/cjs/react-router-dom.min'
+import React from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { useSelector } from 'react-redux';
 
 export default function Creative_works() {
-    const [cur_category, set_category] = useState("all");
     const { all_post } = useSelector(state => state.PostReducers);
     const creative_works_posts = all_post.filter(ap => { return ap.categories[0].title === "Creative works"})
     return (

@@ -77,24 +77,24 @@ export default function Header() {
                         </div>
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex space-x-4 p-32">
-                                <div className="dropdown text-black hover:text-yellow-500 text-2xl" activeClassName="border-b-2 border-black">
+                                <div className="dropdown text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">
                                     <NavLink to="/criticism">Criticism</NavLink>
                                     <div className="dropdown-menu absolute hidden h-auto flex pt-4">
                                         <ul className="block w-full bg-white shadow px-8 py-2 border border-black">
-                                            <li className="py-1"><a className="block text-black hover:text-yellow-500 cursor-pointer">Literature</a></li>
-                                            <li className="py-1"><a className="block text-black hover:text-yellow-500 cursor-pointer">{'Visual & Audio Arts'}</a></li>
-                                            <li className="py-1"><a className="block text-black hover:text-yellow-500 cursor-pointer">Recommendation</a></li>
+                                            <li className="py-1"><div className="block text-black hover:text-yellow-500 cursor-pointer">{'Visual & Audio Arts'}</div></li>
+                                            <li className="py-1"><div className="block text-black hover:text-yellow-500 cursor-pointer">Recommendation</div></li>
+                                            <li className="py-1"><div className="block text-black hover:text-yellow-500 cursor-pointer">Literature</div></li>
                                         </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/interview" className="text-black hover:text-yellow-500 text-2xl" activeClassName="border-b-2 border-black">Interview</NavLink>
-                                <NavLink to="/creative_works" className="text-black hover:text-yellow-500 text-2xl" activeClassName="border-b-2 border-black">Creative works</NavLink>
+                                <NavLink to="/interview" className="text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">Interview</NavLink>
+                                <NavLink to="/creative_works" className="text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">Creative works</NavLink>
                             </div>
                         </div>
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex space-x-4 p-32">
-                                <NavLink to="/magazine_issue" className="text-black hover:text-yellow-500 text-2xl" activeClassName="border-b-2 border-black">Magazine Issue</NavLink>
-                                <NavLink to="/subscribe" className="text-black hover:text-yellow-500 text-2xl" activeClassName="border-b-2 border-black">Subscribe</NavLink>
+                                <NavLink to="/magazine_issue" className="text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">Magazine Issue</NavLink>
+                                <NavLink to="/subscribe" className="text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">Subscribe</NavLink>
                             </div>
                         </div>
                     </div>
