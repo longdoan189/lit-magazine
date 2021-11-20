@@ -1,3 +1,7 @@
 .header_desktop {
 	border-bottom: solid 5px #EFE295;
 }
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}

@@ -18,7 +18,7 @@ export const Common = (props) => {
             <Header/>
             <div className="pt-64 sm:pt-40"></div>
             <Component {...propsRoute} />
-            <div className="pb-40"></div>
+            <div className="pb-32"></div>
             <Footer/>
         </Fragment>
     }} />
