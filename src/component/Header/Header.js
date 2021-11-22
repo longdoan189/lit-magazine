@@ -39,10 +39,10 @@ export default function Header() {
     }
     return (
         <nav className="bg-white header_desktop fixed w-full z-10">
-            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-                <div className="relative flex items-center justify-between h-40">
+            <div className="max-w-7xl mx-auto px-2 lg:px-6 lg:px-8">
+                <div className="relative flex items-center justify-between h-16 lg:h-24 xl:h-32 2xl:h-40">
                     {/* Mobile menu button*/}
-                    <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
                         <button type="button" className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset f9ocus:ring-white" aria-controls="mobile-menu" aria-expanded="false" onClick={() => toggleShow(!show)}>
                             <span className="sr-only">Open main menu</span>
                             {/*
@@ -68,16 +68,16 @@ export default function Header() {
                         </button>
                     </div>
                     {/* Desktop menu */}
-                    <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div className="flex-1 flex items-center justify-center lg:items-stretch lg:justify-start">
                         <div className="flex-shrink-0 flex items-center">
                             <NavLink to="/home">
-                                <img className="block lg:hidden h-16 w-auto" src={logo} alt="LIT Magazine" />
-                                <img className="hidden lg:block h-32 w-auto" src={logo} alt="LIT Magazine" />
+                                <img className="block lg:hidden h-8 sm:h-12 w-auto" src={logo} alt="LIT Magazine" />
+                                <img className="hidden lg:block h-12 xl:h-16 2xl:h-24 w-auto" src={logo} alt="LIT Magazine" />
                             </NavLink>
                         </div>
-                        <div className="hidden sm:block sm:ml-6">
+                        <div className="hidden lg:block lg:ml-6">
                             <div className="flex space-x-4 p-32">
-                                <div className="dropdown text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">
+                                <div className="dropdown text-black hover:text-yellow-500 text-lg xl:text-xl" activeClassName="border-b-2 border-black">
                                     <NavLink to="/criticism">Criticism</NavLink>
                                     <div className="dropdown-menu absolute hidden h-auto flex pt-4">
                                         <ul className="block w-full bg-white shadow px-8 py-2 border border-black">
@@ -87,14 +87,16 @@ export default function Header() {
                                         </ul>
                                     </div>
                                 </div>
-                                <NavLink to="/interview" className="text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">Interview</NavLink>
-                                <NavLink to="/creative_works" className="text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">Creative works</NavLink>
+                                <NavLink to="/interview" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeClassName="border-b-2 border-black">Interview</NavLink>
+                                <NavLink to="/creative_works" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeClassName="border-b-2 border-black">Creative works</NavLink>
                             </div>
                         </div>
-                        <div className="hidden sm:block sm:ml-6">
-                            <div className="flex space-x-4 p-32">
-                                <NavLink to="/magazine_issue" className="text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">Magazine Issue</NavLink>
-                                <NavLink to="/subscribe" className="text-black hover:text-yellow-500 text-xl" activeClassName="border-b-2 border-black">Subscribe</NavLink>
+                        <div className="hidden lg:block lg:ml-2">
+                            <div className="flex space-x-4 py-32 xl:px-28 2xl:px-52">
+                                <NavLink to="/events" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeClassName="border-b-2 border-black">Events</NavLink>
+                                <NavLink to="/magazine_issue" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeClassName="border-b-2 border-black">Magazine Issue</NavLink>
+                                <NavLink to="/about" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeClassName="border-b-2 border-black">About</NavLink>
+                                <NavLink to="/subscribe" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeClassName="border-b-2 border-black">Subscribe</NavLink>
                             </div>
                         </div>
                     </div>
@@ -102,7 +104,7 @@ export default function Header() {
             </div>
             {/* Mobile menu, show/hide based on menu state. */}
             {(show || start_show) &&
-                <div className="sm:hidden" id="mobile-menu">
+                <div className="lg:hidden" id="mobile-menu">
                     <div className="px-2 pt-2 pb-3 space-y-1">
                         {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                         <NavLink to="/criticism" className="text-black block px-3 py-2 rounded-md text-base font-medium">Criticism</NavLink>

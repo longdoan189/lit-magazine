@@ -23,7 +23,7 @@ export default function Home() {
                 <article className='border px-8 py-8'>
                   <Link to={"/post/" + post.slug.current} key={post.slug.current}>
                     <span
-                      className="block relative h-screen rounded shadow leading-snug bg-white"
+                      className="block relative h-64 rounded shadow leading-snug bg-white"
                       key={index}
                     >
                       <img
@@ -64,13 +64,13 @@ export default function Home() {
                         className="w-full h-full rounded-r object-cover absolute"
                       />
                     </span>
-                    <h3 className="text-gray-800 text-2xl font-blog px-3 py-4">
-                      {post.title}
+                    <h3 className="text-gray-800 text-2xl px-3 py-4">
+                      <b>{post.title}</b>
                     </h3>
-                    <span className='text-gray-800 text-lg font-blog px-3 py-4'>
+                    <span className='text-gray-800 text-lg px-3 py-4'>
                       {post.categories[0].title}
                     </span>
-                    <span className='text-gray-800 text-lg font-blog px-10 py-4'>
+                    <span className='text-gray-800 text-lg xl:px-5 py-4'>
                       <i>By {post.author}</i>
                     </span>
                   </Link>
@@ -82,27 +82,27 @@ export default function Home() {
         <section className="container mx-auto mt-20">
           <div className="grid grid-cols-6 md:grid-cols-12 gap-1">
             <div className="col-span-2">
-              <div className='text-5xl'>Latest articles</div>
+              <div className=' text-2xl lg:text-5xl'>Latest articles</div>
               <div>
-                <button className={'text-2xl mt-1 mb-2' + (cur_category === "all" ? "border border-b-2" : "")} onClick={() => {set_category("all")}}>All</button>
+                <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "all" ? "border border-b-2" : "")} onClick={() => {set_category("all")}}>All</button>
               </div>
               <div>
-                <button className={'text-2xl mt-1 mb-2' + (cur_category === "Criticism" ? "border border-b-2" : "")} onClick={() => {set_category("Criticism")}}>Criticism</button>
+                <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "Criticism" ? "border border-b-2" : "")} onClick={() => {set_category("Criticism")}}>Criticism</button>
               </div>
               <div>
-                <button className={'text-2xl mt-1 mb-2' + (cur_category === "Interview" ? "border border-b-2" : "")} onClick={() => {set_category("Interview")}}>Interview</button>
+                <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "Interview" ? "border border-b-2" : "")} onClick={() => {set_category("Interview")}}>Interview</button>
               </div>
               <div>
-                <button className={'text-2xl mt-1 mb-2' + (cur_category === "Creative works" ? "border border-b-2" : "")} onClick={() => {set_category("Creative works")}}>Creative works</button>
+                <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "Creative works" ? "border border-b-2" : "")} onClick={() => {set_category("Creative works")}}>Creative works</button>
               </div>
             </div>
             <div className="col-span-5 md:col-span-10"> 
                 {all_post &&
                   all_post.filter(ap => {return ap.categories[0].title === cur_category || cur_category==="all"}).slice(0,3).map((filtered_post, index) => (
                     <article className='px-4 py-4'>
-                      <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid grid-cols-12">
+                      <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid sm:grid-cols-6 lg:grid-cols-12">
                         <span
-                          className="block w-48 h-48 relative rounded shadow leading-snug bg-white col-span-3"
+                          className="block w-16 h-16 sm:w-32 sm:h-32 lg:w-48 lg:h-48 relative rounded shadow leading-snug bg-white sm:col-span-2 lg:col-span-3"
                           key={index}
                         >
                           <img
@@ -111,22 +111,22 @@ export default function Home() {
                             className="w-full h-full rounded-r object-cover absolute"
                           />
                         </span>
-                        <div className='col-span-9'>
-                          <h3 className="text-gray-800 text-2xl font-blog px-3 py-2">
-                            {filtered_post.title}
+                        <div className='sm:col-span-4 lg:col-span-9'>
+                          <h3 className="text-gray-800 text-xl lg:text-2xl font-blog px-3 py-2">
+                            <b>{filtered_post.title}</b>
                           </h3>
-                          <span className='text-gray-800 text-lg font-blog px-3 py-2'>
+                          <span className='text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>
                             <i>By {filtered_post.author}</i>
                           </span>
-                          <span className='text-gray-800 text-lg font-blog px-3 py-2'>
+                          <span className='text-gray-800 text-xs sm:text-base lg:text-lg inline-block md:inline font-blog px-3 py-2'>
                             {filtered_post.publishedAt.slice(0,10)}
                           </span>
-                          <span className='text-gray-800 text-lg font-blog px-3 py-2 border rounded-lg border-black'>
+                          <span className='text-gray-800 text-xs font-blog inline-block md:inline px-2 py-1 border rounded-lg border-black'>
                             <NavLink to={"/"+filtered_post.categories[0].title}>
                               {filtered_post.categories[0].title}
                             </NavLink>
                           </span>
-                          <p className='text-gray-800 text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
+                          <p className='text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
                         </div>
                       </Link>
                     </article>
