@@ -1,6 +1,7 @@
 @import url("https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css");
 @import url("https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Philosopher&display=swap');
 
 html {
   font-family: 'Philosopher';
@@ -8,8 +9,7 @@ html {
 }
 
 .secondary-font {
-  font-family: "Amatic SC", cursive;
-  font-weight: 700;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .prose img {
@@ -20,4 +20,9 @@ html {
 
 .home-name {
   font-size: 150px;
+}
+
+p{
+  font-family: 'Philosopher';
+  font-weight: 700; 
 }

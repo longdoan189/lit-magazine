@@ -55,7 +55,7 @@ export default function SinglePost() {
             className="w-full object-cover rounded-t"
           />
         </header>
-        <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
+        <div className="secondary-font px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
           <BlockContent
             blocks={singlePost.body}
             projectId="r99w5jgb"

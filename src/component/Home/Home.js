@@ -126,7 +126,7 @@ export default function Home() {
                               {filtered_post.categories[0].title}
                             </NavLink>
                           </span>
-                          <p className='text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
+                          <p className='secondary-font text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
                         </div>
                       </Link>
                     </article>
