@@ -1,8 +1,13 @@
-import React  from 'react'
+import React, {useEffect}  from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {PostActions} from "../redux/actions/PostActions";
 
 export default function Events() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(PostActions());
+    }, []);
     const { all_post } = useSelector(state => state.PostReducers);
     return (
         <div>

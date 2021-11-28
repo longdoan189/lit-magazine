@@ -1,9 +1,14 @@
-import React, { useState }  from 'react'
+import React, { useState, useEffect }  from 'react'
 import grand_image from '../../src/asset/f1-2020.jpg'
 import { NavLink, Link } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {PostActions} from "../redux/actions/PostActions";
 
 export default function Criticism() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(PostActions());
+    }, []);
     const [cur_category, set_category] = useState("all");
     const { all_post } = useSelector(state => state.PostReducers);
     const criticism_posts = all_post.filter(ap => { return ap.categories[0].title === "Criticism"})

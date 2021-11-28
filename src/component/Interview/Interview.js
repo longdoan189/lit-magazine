@@ -1,9 +1,14 @@
-import React, { useState }  from 'react'
+import React, { useState, useEffect }  from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {PostActions} from "../../redux/actions/PostActions";
 import './Interview.css'
 
 export default function Interview() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(PostActions());
+    }, []);
     const { all_post } = useSelector(state => state.PostReducers);
     const interview_posts = all_post.filter(ap => { return ap.categories[0].title === "Interview"})
     const [searched_posts, set_searched_posts] = useState([...interview_posts])
