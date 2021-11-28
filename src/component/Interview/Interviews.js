@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../../redux/actions/PostActions";
 import './Interview.css'
 
-export default function Interview() {
+export default function Interviews() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(PostActions());
@@ -21,8 +21,8 @@ export default function Interview() {
     return (
         <div>
             <div className='mt-12'>
-                <h1 className='text-5xl text-center'>Interview</h1>
-                <p className='text-3xl mx-64 my-12'>The quick brown fox jumps over the lazy dog </p>
+                <h1 className='text-5xl text-center'>Interviews</h1>
+                <p className='text-3xl mx-64 my-12 secondary-font'>The quick brown fox jumps over the lazy dog </p>
             </div>
             <input className="container mx-20 my-10 border border-black rounded-lg h-12" value={keyword} placeholder="Search by title..." onInput={e => set_keyword(e.target.value)} onChange={onSearch} enterButton size="large" />
             <section className="container mx-auto my-10">

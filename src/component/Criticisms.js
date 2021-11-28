@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../redux/actions/PostActions";
 
-export default function Criticism() {
+export default function Criticisms() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(PostActions());
@@ -15,8 +15,8 @@ export default function Criticism() {
     return (
         <div>
             <div className='mt-12'>
-                <h1 className='text-5xl text-center'>Criticism</h1>
-                <p className='text-3xl mx-64 my-12'>Criticism is one of LIT Magazine’s main focuses. The category centres on original ideas and voices inspired by works of literature, mixed-media art work and recommendations on good works about the arts, written by LIT Magazine’s dedicated writers and contributors. </p>
+                <h1 className='text-5xl text-center'>Criticisms</h1>
+                <p className='text-3xl mx-64 my-12 secondary-font'>Criticism is one of LIT Magazine’s main focuses. The category centres on original ideas and voices inspired by works of literature, mixed-media art work and recommendations on good works about the arts, written by LIT Magazine’s dedicated writers and contributors. </p>
             </div>
             <img src={grand_image} alt="CRITICISM @LIT MAGAZINE" className='w-full' />
             <section className="container mx-auto mt-20">

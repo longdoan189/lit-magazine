@@ -9,10 +9,10 @@ export default function Footer() {
             <div className='grid grid-cols-4'>
                 <img src={logo} alt="LIT Magazine" />
                 <div className="mt-5">
-                    <NavLink to="/criticism">
+                    <NavLink to="/criticisms">
                         <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>Critique</b></p>
                     </NavLink>
-                    <NavLink to="/interview">
+                    <NavLink to="/interviews">
                         <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>Interview</b></p>
                     </NavLink>
                     <NavLink to="/creative_works">
