@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 import grand_image from '../../src/asset/f1-2020.jpg'
-import { NavLink, Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { NavLink, Link } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
 export default function Criticism() {
