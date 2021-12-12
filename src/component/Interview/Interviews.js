@@ -22,9 +22,11 @@ export default function Interviews() {
         <div>
             <div className='mt-12'>
                 <h1 className='text-5xl text-center'>Interviews</h1>
-                <p className='text-3xl mx-64 my-12 secondary-font'>The quick brown fox jumps over the lazy dog </p>
+                <p className='text-3xl mx-64 my-12 secondary-font'>‘Interview’ features all LIT Magazine’s meeting notes, transferring ideas from the talks with dedicated writers and researchers. </p>
             </div>
-            <input className="container mx-20 my-10 border border-black rounded-lg h-12" value={keyword} placeholder="Search by title..." onInput={e => set_keyword(e.target.value)} onChange={onSearch} enterButton size="large" />
+            <div className='mx-64 my-10'>
+                <input className="border border-black rounded-lg h-12 w-full block" value={keyword} placeholder="Search by title..." onInput={e => set_keyword(e.target.value)} onChange={onSearch} enterButton size="large" />
+            </div>
             <section className="container mx-auto my-10">
                 {searched_posts &&
                     searched_posts.slice(0, 3).map((filtered_post, index) => (

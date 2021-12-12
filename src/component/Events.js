@@ -11,16 +11,16 @@ export default function Events() {
     const { all_post } = useSelector(state => state.PostReducers);
     return (
         <div>
-            <div className='mt-12'>
-                <h1 className='text-5xl ml-20'>Events</h1>
+            <div className='mt-12 ml-4 lg:ml-32'>
+                <h1 className='text-5xl'>Events</h1>
             </div>
-            <section className="container mx-auto my-10">
+            <section className="container ml-4 lg:ml-32 my-10">
                 {all_post &&
                     all_post.map((filtered_post, index) => (
-                        <article className='px-4 py-4'>
+                        <article className='pr-4 py-4'>
                             <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid grid-cols-12 gap-12">
                                 <span
-                                    className="block relative rounded shadow leading-snug bg-white col-start-2 col-span-6"
+                                    className="block relative rounded shadow leading-snug bg-white col-start-1 col-span-6"
                                     key={index}
                                 >
                                     <img

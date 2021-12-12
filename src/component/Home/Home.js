@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {PostActions} from "../../redux/actions/PostActions";
+import './Home.css'
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export default function Home() {
                 <article className='border px-8 py-8'>
                   <Link to={"/post/" + post.slug.current} key={post.slug.current}>
                     <span
-                      className="block relative h-64 rounded shadow leading-snug bg-white"
+                      className="block relative h-96 rounded shadow leading-snug bg-white"
                       key={index}
                     >
                       <img

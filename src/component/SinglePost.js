@@ -34,12 +34,12 @@ export default function SinglePost() {
   if (!singlePost) return <div>Loading...</div>;
 
   return (
-    <main className=" min-h-screen p-12">
+    <main className=" min-h-screen px-12">
       <article className="container shadow-lg mx-auto rounded-lg">
         <header className="">
-          <div className="flex items-center justify-center p-8">
+          <div className="flex items-center justify-center px-8">
             <div className="bg-white rounded p-12">
-              <h1 className="cursive text-3xl lg:text-6xl mb-4">
+              <h1 className="cursive text-3xl lg:text-5xl mb-4">
                 {singlePost.title}
               </h1>
               <div className="flex justify-center text-gray-800">
