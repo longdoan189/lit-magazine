@@ -2,7 +2,7 @@
 import axios from "axios";
 
 
-const query = `*[_type == "post"]{
+const post_query = `*[_type == "post"]{
     title,
     slug,
     "body": body[0],
@@ -17,13 +17,27 @@ const query = `*[_type == "post"]{
         alt
     }
 }`
+const feature_query = `*[_type == "feature"]{
+    "first": first->slug,
+    "second": second[]->slug
+}` 
+
 export class PostService {
     getAllPosts = () => {
         return axios({
-            url: `https://inu5zxa1.apicdn.sanity.io/v2021-08-31/data/query/production?query=${query}`,
+            url: `https://inu5zxa1.apicdn.sanity.io/v2021-08-31/data/query/production?query=${post_query}`,
+            method: 'GET'
+        })
+    }
+}
+export class FeatureService {
+    getFeature = () => {
+        return axios({
+            url: `https://inu5zxa1.apicdn.sanity.io/v2021-08-31/data/query/production?query=${feature_query}`,
             method: 'GET'
         })
     }
 }
 
 export const postService = new PostService();
+export const featureService = new FeatureService();

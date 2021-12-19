@@ -11,10 +11,10 @@ export default function Events() {
     const { all_post } = useSelector(state => state.PostReducers);
     return (
         <div>
-            <div className='mt-12 ml-4 lg:ml-32'>
+            <div className='mt-12 sm:mx-8 lg:mx-24 xl:mx-32'>
                 <h1 className='text-5xl'>Events</h1>
             </div>
-            <section className="container ml-4 lg:ml-32 my-10">
+            <section className="container sm:mx-8 lg:mx-24 xl:mx-32 my-10">
                 {all_post &&
                     all_post.map((filtered_post, index) => (
                         <article className='pr-4 py-4'>
@@ -34,7 +34,7 @@ export default function Events() {
                                     <h3 className="text-gray-800 text-2xl font-blog px-3 py-2">
                                         {filtered_post.title}
                                     </h3>
-                                    <span className='text-gray-800 text-lg font-blog px-3 py-2'>
+                                    <span className='text-gray-800 text-lg font-blog px-3 py-2 block md:inline-block'>
                                         {filtered_post.publishedAt.slice(0, 10)}
                                     </span>
                                     <span className='text-gray-800 text-lg font-blog px-3 py-2 border rounded-lg border-black'>

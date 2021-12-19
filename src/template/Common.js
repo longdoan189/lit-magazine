@@ -16,7 +16,7 @@ export const Common = (props) => {
     return <Route {...restProps} render={(propsRoute)=>{
         return <Fragment>
             <Header/>
-            <div className="pt-48 sm:pt-32"></div>
+            <div className="pt-24 sm:pt-16"></div>
             <Component {...propsRoute} />
             <div className="pb-32"></div>
             <Footer/>

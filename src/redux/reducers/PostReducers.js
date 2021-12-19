@@ -1,5 +1,6 @@
 const stateDefault = {
     all_post: [],
+    feature_post: {}
 }
 
 export const PostReducers = (state = stateDefault, action) => {
@@ -9,9 +10,20 @@ export const PostReducers = (state = stateDefault, action) => {
                 return new Date(a.publishedAt).getTime() - 
                     new Date(b.publishedAt).getTime()
             }).reverse();
-            console.log(all_post_sorted)
-            state.all_post = action.all_post;
+            state.all_post = all_post_sorted;
             return { ...state }
+        }
+        case "GET_FEATURE": {
+            let holder = {
+                first: action.all_post[0].first.current,
+                second: []
+            }
+            for (let each of action.all_post[0].second) {
+                holder.second.push(each.current)
+            }
+            state.feature_post = holder
+            console.log(state.feature_post)
+            return {...state }
         }
         case "testing": {
             return { ...state }

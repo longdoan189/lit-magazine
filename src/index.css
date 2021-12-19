@@ -21,3 +21,7 @@ html {
 .home-name {
   font-size: 150px;
 }
+
+.circle-img {
+  border-radius: 50%;
+}

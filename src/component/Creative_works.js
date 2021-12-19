@@ -14,7 +14,7 @@ export default function Creative_works() {
         <div>
             <div className='mt-12'>
                 <h1 className='text-5xl text-center'>Creative work</h1>
-                <p className='text-3xl mx-64 my-12 secondary-font'>‘Creative work’ features all original works that embrace the experimental spirit, welcoming all markers to create new imaginary world visions in their mind. Here the spiritual rocks! </p>
+                <p className='text-3xl mx-4 sm:mx-32 lg:mx-64 my-12 secondary-font'>‘Creative work’ features all original works that embrace the experimental spirit, welcoming all markers to create new imaginary world visions in their mind. Here the spiritual rocks! </p>
             </div>
 
             <div className='mx-32 mt-20'>
