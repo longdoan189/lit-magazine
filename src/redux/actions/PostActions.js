@@ -13,6 +13,7 @@ export const PostActions = () => {
         } catch (error) {
             console.log('error', error);
         }
+        dispatch(FeatureActions());
     }
 }
 

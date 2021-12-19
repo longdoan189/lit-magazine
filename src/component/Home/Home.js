@@ -10,6 +10,7 @@ export default function Home() {
         dispatch(PostActions());
         dispatch(FeatureActions());
     }, []);
+    
     const { all_post, feature_post } = useSelector(state => state.PostReducers);
     console.log(all_post, feature_post)
     const [cur_category, set_category] = useState("all");
