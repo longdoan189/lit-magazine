@@ -4,6 +4,7 @@ export const PostActions = () => {
     return async (dispatch) => {
         try {
             const result = await postService.getAllPosts();
+            await dispatch(FeatureActions());
             if (result.status === 200) {
                 dispatch({
                     type: "GET_ALL_POST",
@@ -13,7 +14,6 @@ export const PostActions = () => {
         } catch (error) {
             console.log('error', error);
         }
-        dispatch(FeatureActions());
     }
 }
 

@@ -9,7 +9,6 @@ export default function Start() {
     const dispatch = useDispatch(); 
     useEffect(() => {
         dispatch(PostActions());
-        dispatch(FeatureActions());
     }, []);
     return (
         <div className='full-page'>
