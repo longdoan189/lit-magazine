@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../redux/actions/PostActions";
 
 export default function Creative_works() {
-    const dispatch = useDispatch();
-    useEffect(() => {
+    const dispatch = useDispatch(); 
+      useEffect(() => {
         dispatch(PostActions());
-    }, []);
+      }, [dispatch]);
     const { all_post } = useSelector(state => state.PostReducers);
     const creative_works_posts = all_post.filter(ap => { return ap.categories[0].title === "Creative works"})
     return (

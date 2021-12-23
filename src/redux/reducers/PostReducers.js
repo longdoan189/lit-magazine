@@ -1,6 +1,6 @@
 const stateDefault = {
     all_post: [],
-    feature_post: {}
+    feature_post: {first: '', second: []}
 }
 
 export const PostReducers = (state = stateDefault, action) => {
@@ -22,7 +22,6 @@ export const PostReducers = (state = stateDefault, action) => {
                 holder.second.push(each.current)
             }
             state.feature_post = holder
-            console.log(state.feature_post)
             return {...state }
         }
         case "testing": {

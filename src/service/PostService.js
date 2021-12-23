@@ -24,6 +24,7 @@ const feature_query = `*[_type == "feature"]{
 
 export class PostService {
     getAllPosts = () => {
+        console.log("called posts")
         return axios({
             url: `https://inu5zxa1.apicdn.sanity.io/v2021-08-31/data/query/production?query=${post_query}`,
             method: 'GET'
@@ -32,6 +33,7 @@ export class PostService {
 }
 export class FeatureService {
     getFeature = () => {
+        console.log("called feature")
         return axios({
             url: `https://inu5zxa1.apicdn.sanity.io/v2021-08-31/data/query/production?query=${feature_query}`,
             method: 'GET'

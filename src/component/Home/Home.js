@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {PostActions, FeatureActions} from "../../redux/actions/PostActions";
+import {FeatureActions, PostActions} from "../../redux/actions/PostActions";
 import './Home.css'
 
 export default function Home() {
     const dispatch = useDispatch(); 
       useEffect(() => {
-        dispatch(PostActions());
         dispatch(FeatureActions());
+        dispatch(PostActions());
       }, []);
 
     const { all_post, feature_post } = useSelector(state => state.PostReducers);

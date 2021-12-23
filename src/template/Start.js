@@ -3,13 +3,13 @@ import './Start.css'
 import logo from "../asset/square_3x.png"
 import { NavLink } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { PostActions, FeatureActions } from '../redux/actions/PostActions';
+import { PostActions } from '../redux/actions/PostActions';
 
 export default function Start() {
     const dispatch = useDispatch(); 
-    useEffect(() => {
+      useEffect(() => {
         dispatch(PostActions());
-    }, []);
+      }, [dispatch]);
     return (
         <div className='full-page'>
             <div className='very-center'>

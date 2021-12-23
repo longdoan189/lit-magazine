@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../redux/actions/PostActions";
 
 export default function Events() {
-    const dispatch = useDispatch();
-    useEffect(() => {
+    const dispatch = useDispatch(); 
+      useEffect(() => {
         dispatch(PostActions());
-    }, []);
+      }, [dispatch]);
     const { all_post } = useSelector(state => state.PostReducers);
     return (
         <div>
