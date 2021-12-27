@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 import logo from "../../asset/horizontal@3x.png"
+import Searchbar from '../Search/Searchbar';
 import './Header.css'
 
 function getWindowDimensions() {
@@ -74,21 +75,21 @@ export default function Header() {
                                 <img className="block lg:hidden h-8 w-auto" src={logo} alt="LIT Magazine" />
                                 <img className="hidden lg:block h-8 xl:h-12 2xl:h-16 w-auto" src={logo} alt="LIT Magazine" />
                             </NavLink>
-                        </div>
-                        <div className="hidden lg:block lg:ml-6">
-                            <div className="flex space-x-4 py-32">
-                                <div className="dropdown text-black hover:text-yellow-500 text-lg xl:text-xl" activeclassname="border-b-2 border-black">
-                                    <NavLink to="/criticisms">Criticisms</NavLink>
-                                    <div className="dropdown-menu absolute hidden h-auto flex pt-4">
-                                        <ul className="block w-full bg-white shadow px-8 py-2 border border-black">
-                                            <li className="py-1"><div className="block text-black hover:text-yellow-500 cursor-pointer">{'Visual & Audio Arts'}</div></li>
-                                            <li className="py-1"><div className="block text-black hover:text-yellow-500 cursor-pointer">Recommendation</div></li>
-                                            <li className="py-1"><div className="block text-black hover:text-yellow-500 cursor-pointer">Literature</div></li>
-                                        </ul>
+                            <div className="hidden lg:block lg:ml-16">
+                                <div className="flex space-x-4 py-32">
+                                    <div className="dropdown text-black hover:text-yellow-500 text-lg xl:text-xl" activeclassname="border-b-2 border-black">
+                                        <NavLink to="/criticisms">Criticisms</NavLink>
+                                        <div className="dropdown-menu absolute hidden h-auto flex pt-4">
+                                            <ul className="block w-full bg-white shadow px-8 py-2 border border-black">
+                                                <li className="py-1"><div className="block text-black hover:text-yellow-500 cursor-pointer">{'Visual & Audio Arts'}</div></li>
+                                                <li className="py-1"><div className="block text-black hover:text-yellow-500 cursor-pointer">Recommendation</div></li>
+                                                <li className="py-1"><div className="block text-black hover:text-yellow-500 cursor-pointer">Literature</div></li>
+                                            </ul>
+                                        </div>
                                     </div>
+                                    <NavLink to="/interviews" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeclassname="border-b-2 border-black">Interviews</NavLink>
+                                    <NavLink to="/creative_works" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeclassname="border-b-2 border-black">Creative works</NavLink>
                                 </div>
-                                <NavLink to="/interviews" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeclassname="border-b-2 border-black">Interviews</NavLink>
-                                <NavLink to="/creative_works" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeclassname="border-b-2 border-black">Creative works</NavLink>
                             </div>
                         </div>
                         <div className="hidden lg:block lg:ml-2">
@@ -97,6 +98,7 @@ export default function Header() {
                                 <NavLink to="/magazine_issue" className="text-black hover:text-yellow-500 text-sm xl:text-base secondary-font uppercase mt-1" activeclassname="border-b-2 border-black">Magazine Issue</NavLink>
                                 <NavLink to="/about" className="text-black hover:text-yellow-500 text-sm xl:text-base secondary-font uppercase mt-1" activeclassname="border-b-2 border-black">About</NavLink>
                                 <NavLink to="/subscribe" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeclassname="border-b-2 border-black"><i>Subscribe</i></NavLink>
+                                <Searchbar/>
                             </div>
                         </div>
                     </div>
@@ -111,9 +113,9 @@ export default function Header() {
                         <NavLink to="/criticisms" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Criticisms</NavLink>
                         <NavLink to="/interviews" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Interviews</NavLink>
                         <NavLink to="/creative_works" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Creative works</NavLink>
-                        <NavLink to="/about" className="text-black block px-3 py-2 rounded-md text-base font-medium" activeclassname="border-b-2 border-black"  onClick={() => toggleShow(false)} >About</NavLink>
-                        <NavLink to="/magazine_issue" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)}  activeclassname="border-b-2 border-black">Magazine Issue</NavLink>
-                        <NavLink to="/subscribe" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)}  activeclassname="border-b-2 border-black">Subscribe</NavLink>
+                        <NavLink to="/about" className="text-black block px-3 py-2 rounded-md text-base font-medium" activeclassname="border-b-2 border-black" onClick={() => toggleShow(false)} >About</NavLink>
+                        <NavLink to="/magazine_issue" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black">Magazine Issue</NavLink>
+                        <NavLink to="/subscribe" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black">Subscribe</NavLink>
                     </div>
                 </div>
             }

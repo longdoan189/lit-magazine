@@ -9,7 +9,7 @@ export default function Home() {
       useEffect(() => {
         dispatch(FeatureActions());
         dispatch(PostActions());
-      }, []);
+      }, [dispatch]);
 
     const { all_post, feature_post } = useSelector(state => state.PostReducers);
     console.log(all_post, feature_post)
@@ -34,7 +34,7 @@ export default function Home() {
                         className="w-full h-full rounded-r object-cover absolute"
                       />
                     </span>
-                    <h3 className="text-gray-800 text-3xl md:text-4xl lg:text-5xl font-blog sm:px-10 py-4">
+                    <h3 className="text-gray-800 text-2xl md:text-3xl lg:text-4xl font-blog sm:px-10 py-4">
                       <b>{post.title}</b>
                     </h3>
                     <span className='text-gray-800 text-lg font-blog sm:px-10 py-4'>

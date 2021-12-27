@@ -13,6 +13,7 @@ import PageNotFound from "./component/PageNotFound"
 import { Common } from "./template/Common";
 import Start from "./template/Start";
 import Events from "./component/Events";
+import Search from "./component/Search/Search";
 
 export const history = createBrowserHistory();
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Common Component={Home} path="/home"/>
           <Common Component={About} path="/about"/>
           <Common Component={SinglePost} path="/post/:slug"/>
+          <Common Component={Search} path="/search/:slug"/>
           <Common Component={Post} path="/post"/>
           <Common Component={Criticisms} path="/criticisms"/>
           <Common Component={Creative_works} path="/creative_works"/>
