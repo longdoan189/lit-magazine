@@ -95,7 +95,7 @@ export default function Header() {
                         <div className="hidden lg:block lg:ml-2">
                             <div className="flex space-x-4 py-32 lg:px-6 xl:px-28 2xl:px-52">
                                 <NavLink to="/events" className="text-black hover:text-yellow-500 text-sm xl:text-base secondary-font uppercase mt-1" activeclassname="border-b-2 border-black">Events</NavLink>
-                                <NavLink to="/magazine_issue" className="text-black hover:text-yellow-500 text-sm xl:text-base secondary-font uppercase mt-1" activeclassname="border-b-2 border-black">Magazine Issue</NavLink>
+                                <NavLink to="/magazine_issue" className="text-black hover:text-yellow-500 text-sm xl:text-base secondary-font uppercase mt-1 hidden" activeclassname="border-b-2 border-black">Magazine Issue</NavLink>
                                 <NavLink to="/about" className="text-black hover:text-yellow-500 text-sm xl:text-base secondary-font uppercase mt-1" activeclassname="border-b-2 border-black">About</NavLink>
                                 <NavLink to="/subscribe" className="text-black hover:text-yellow-500 text-lg xl:text-xl" activeclassname="border-b-2 border-black"><i>Subscribe</i></NavLink>
                                 <Searchbar/>
@@ -114,7 +114,6 @@ export default function Header() {
                         <NavLink to="/interviews" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Interviews</NavLink>
                         <NavLink to="/creative_works" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Creative works</NavLink>
                         <NavLink to="/about" className="text-black block px-3 py-2 rounded-md text-base font-medium" activeclassname="border-b-2 border-black" onClick={() => toggleShow(false)} >About</NavLink>
-                        <NavLink to="/magazine_issue" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black">Magazine Issue</NavLink>
                         <NavLink to="/subscribe" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black">Subscribe</NavLink>
                     </div>
                 </div>
