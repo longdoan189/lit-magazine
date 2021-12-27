@@ -10,11 +10,11 @@ export default function Events() {
       }, [dispatch]);
     const { all_post } = useSelector(state => state.PostReducers);
     return (
-        <div>
-            <div className='mt-12 sm:mx-8 lg:mx-24 xl:mx-32'>
+        <div className='container mx-auto'>
+            <div className='mt-12'>
                 <h1 className='text-5xl'>Events</h1>
             </div>
-            <section className="container sm:mx-8 lg:mx-24 xl:mx-32 my-10">
+            <section className= "my-10">
                 {all_post &&
                     all_post.map((filtered_post, index) => (
                         <article className='pr-4 py-4'>

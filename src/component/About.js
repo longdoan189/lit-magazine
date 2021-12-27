@@ -14,11 +14,11 @@ export default function About() {
      */
     return (
         <div>
-            <div className='mt-12 sm:mx-8 lg:mx-24 xl:mx-32'>
+            <div className='mt-12 mx-8'>
                 <h1 className='text-5xl'>About</h1>
             </div>
             <div className='bg-gray-400 grid grid-cols-4'>
-                <p className='text-xl py-12 sm:mx-8 lg:mx-24 xl:mx-32 col-span-3'>
+                <p className='text-xl py-12 col-span-3 mx-8'>
                     LIT Magazine is a bilingual (Vietnamese-English), online, open-access magazine focusing mainly on literature and the arts, led by a group of Fulbright students. We focus on wo main sections, which include research on literature as well as creative works of literature and the arts. Regarding the first domain, we believ
                 </p>
                 <img src={emblem} alt="LIT Magazine emblem" className='py-3 h-64'/>
