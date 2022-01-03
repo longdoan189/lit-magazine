@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react'
+import React, { useEffect }  from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../../redux/actions/PostActions";
@@ -11,25 +11,15 @@ export default function Interviews() {
       }, [dispatch]);
     const { all_post } = useSelector(state => state.PostReducers);
     const interview_posts = all_post.filter(ap => { return ap.categories[0].title === "Interview"})
-    const [searched_posts, set_searched_posts] = useState([...interview_posts])
-    const [keyword, set_keyword] = useState('')
-    const onSearch = () => {
-        let searched = interview_posts.filter(ap => {let each_title = ap.title.toLowerCase() ; return each_title.includes(keyword)})
-        set_searched_posts(searched);
-    };
-    
     return (
         <div>
             <div className='mt-12'>
                 <h1 className='text-5xl text-center'>Interviews</h1>
                 <p className='text-3xl mx-4 sm:mx-32 lg:mx-64 my-12 secondary-font'>‘Interview’ features all LIT Magazine’s meeting notes, transferring ideas from the talks with dedicated writers and researchers. </p>
             </div>
-            <div className='mx-4 sm:mx-32 lg:mx-64 my-10'>
-                <input className="border border-black rounded-lg h-12 w-full block" value={keyword} placeholder="Search by title..." onInput={e => set_keyword(e.target.value)} onChange={onSearch} enterButton size="large" />
-            </div>
             <section className="container mx-auto my-10">
-                {searched_posts &&
-                    searched_posts.slice(0, 3).map((filtered_post, index) => (
+                {interview_posts &&
+                    interview_posts.map((filtered_post, index) => (
                         <article className='px-4 py-4'>
                             <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid grid-cols-12 gap-12">
                                 <span

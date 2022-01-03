@@ -14,7 +14,7 @@ export default function Search() {
     return (
         <section className="container mx-auto mt-12">
           <div className='mx-auto text-center my-12 text-5xl'>
-            Search for "{slug}" - {filtered_search.length} found
+            Search for "{slug}" - {filtered_search?.length} found
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered_search &&
