@@ -23,12 +23,12 @@ export default function Footer() {
                     <NavLink to="/about">
                         <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>About</b></p>
                     </NavLink>
-                    <NavLink to="/event">
+                    <NavLink to="/events">
                         <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>Event</b></p>
                     </NavLink>
-                    <NavLink to="/subscribe">
+                    {/*<NavLink to="/subscribe">
                         <button className="text-sm md:text-lg mt-2 hover:text-yellow-500 px-3 py-1 border rounded-lg border-black"><b>Subscribe</b></button>
-                    </NavLink>
+                    </NavLink>*/}
                 </div>
                 <div className="mt-5">
                     <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><a href="https://www.facebook.com/lit.magazine.fuv" target="_blank" rel="noopener noreferrer">
