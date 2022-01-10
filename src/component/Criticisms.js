@@ -1,5 +1,4 @@
 import React, { useState, useEffect }  from 'react'
-import grand_image from '../../src/asset/f1-2020.jpg'
 import { NavLink, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../redux/actions/PostActions";
@@ -18,7 +17,7 @@ export default function Criticisms() {
                 <h1 className='text-5xl text-center'>Criticisms</h1>
                 <p className='text-3xl mx-4 sm:mx-32 lg:mx-64 my-12 secondary-font'>Criticism is one of LIT Magazine’s main focuses. The category centres on original ideas and voices inspired by works of literature, mixed-media art work and recommendations on good works about the arts, written by LIT Magazine’s dedicated writers and contributors. </p>
             </div>
-            <img src={grand_image} alt="CRITICISM @LIT MAGAZINE" className='w-full' />
+            {/*<img src={grand_image} alt="CRITICISM @LIT MAGAZINE" className='w-full' />*/}
             <section className="container mx-auto mt-20">
                 <div className="grid grid-cols-6 md:grid-cols-12 gap-1">
                     <div className="col-span-10 md:col-span-2 p-12 md:p-0">

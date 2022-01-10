@@ -103,8 +103,8 @@ export default function Home() {
                   all_post.filter(ap => {return ap.categories[0].title === cur_category || cur_category==="all"}).slice(0,3).map((filtered_post, index) => (
                     <article className='px-4 py-4'>
                       <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid sm:grid-cols-6 lg:grid-cols-12">
-                        <span
-                          className="block w-16 h-16 sm:w-32 sm:h-32 lg:w-48 lg:h-48 relative rounded shadow leading-snug bg-white sm:col-span-2 lg:col-span-3"
+                        <div
+                          className="block w-24 h-16 sm:w-40 sm:h-32 lg:w-64 lg:h-48 relative rounded shadow leading-snug bg-white sm:col-span-2 lg:col-span-3"
                           key={index}
                         >
                           <img
@@ -112,9 +112,9 @@ export default function Home() {
                             alt={filtered_post.mainImage.alt}
                             className="w-full h-full rounded-r object-cover absolute"
                           />
-                        </span>
-                        <div className='sm:col-span-4 lg:col-span-9'>
-                          <h3 className="text-gray-800 text-xl lg:text-2xl font-blog px-3 py-2">
+                        </div>
+                        <div className='sm:col-span-4 lg:col-span-9 sm:ml-8 lg:ml-16 xl:ml-12'>
+                          <h3 className="text-gray-800 text-xl lg:text-2xl font-blog px-3 pb-2">
                             <b>{filtered_post.title}</b>
                           </h3>
                           <span className='text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>

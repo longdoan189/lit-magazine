@@ -26,8 +26,9 @@ function App() {
           <Common Component={Home} path="/home"/>
           <Common Component={About} path="/about"/>
           <Common Component={SinglePost} path="/post/:slug"/>
-          <Common Component={Search} path="/search/:slug"/>
           <Common Component={Post} path="/post"/>
+          <Common Component={Search} path="/search/:slug"/>
+          <Common Component={Search} path="/search"/>
           <Common Component={Criticisms} path="/criticisms"/>
           <Common Component={Creative_works} path="/creative_works"/>
           <Common Component={Interviews} path="/interviews"/>
