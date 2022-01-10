@@ -1,4 +1,4 @@
-import { Router, Switch } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 import Home from "./component/Home/Home"
 import About from "./component/About"
@@ -35,6 +35,10 @@ function App() {
           <Common Component={Magazine_issue} path="/magazine_issue"/>
           <Common Component={Events} path="/events"/>
           <Common Component={Subscribe} path="/subscribe"/>
+          <Route path='/admin' component={() => { 
+              window.location.href = 'https://litmagazine.sanity.studio/desk'; 
+              return null;
+          }}/>
           <Common Component={PageNotFound} path="*" exact/>
         </Switch>
       </Router>
