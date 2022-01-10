@@ -71,7 +71,7 @@ export default function Header() {
                     {/* Desktop menu */}
                     <div className="flex-1 flex items-center justify-center lg:items-stretch lg:justify-between">
                         <div className="flex-shrink-0 flex items-center">
-                            <NavLink to="/home">
+                            <NavLink to="/">
                                 <img className="block lg:hidden h-8 w-auto" src={logo} alt="LIT Magazine" />
                                 <img className="hidden lg:block h-8 xl:h-12 2xl:h-16 w-auto" src={logo} alt="LIT Magazine" />
                             </NavLink>
@@ -109,7 +109,7 @@ export default function Header() {
                 <div className="lg:hidden" id="mobile-menu">
                     <div className="px-2 pt-2 pb-3 space-y-1">
                         {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                        <NavLink to="/home" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Home</NavLink>
+                        <NavLink to="/" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Home</NavLink>
                         <NavLink to="/criticisms" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Criticisms</NavLink>
                         <NavLink to="/interviews" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Interviews</NavLink>
                         <NavLink to="/creative_works" className="text-black block px-3 py-2 rounded-md text-base font-medium" onClick={() => toggleShow(false)} activeclassname="border-b-2 border-black" >Creative works</NavLink>

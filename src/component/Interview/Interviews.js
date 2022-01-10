@@ -21,32 +21,33 @@ export default function Interviews() {
                 {interview_posts &&
                     interview_posts.map((filtered_post, index) => (
                         <article className='px-4 py-4'>
-                            <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid grid-cols-12 gap-12">
-                                <span
-                                    className="block relative rounded shadow leading-snug bg-white col-span-6"
-                                    key={index}
+                            <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid grid-cols-2">
+                                <div
+                                className="block relative rounded bg-white my-auto"
+                                key={index} style={{"width": "40vw", "height": "20vw"}}
                                 >
-                                    <p className='text-center border border-black'>By {filtered_post.author} </p>
                                     <img
                                         src={filtered_post.mainImage.asset.url}
                                         alt={filtered_post.mainImage.alt}
-                                        className="w-full h-full rounded-r object-cover absolute"
+                                        className="w-full h-full rounded-r"
                                     />
-                                    
-                                </span>
-                                <div className='col-span-6'>
-                                    <h3 className="text-gray-800 text-2xl font-blog px-3 py-2">
-                                        {filtered_post.title}
+                                </div>
+                                <div className='sm:ml-8 lg:ml-16 xl:ml-12 my-auto'>
+                                    <h3 className="text-gray-800 text-xl lg:text-2xl font-blog px-3 pb-2">
+                                        <b>{filtered_post.title}</b>
                                     </h3>
-                                    <span className='text-gray-800 text-lg font-blog px-3 py-2'>
-                                        {filtered_post.publishedAt.slice(0, 10)}
+                                    <span className='text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>
+                                        <i>By {filtered_post.author}</i>
                                     </span>
-                                    <span className='text-gray-800 text-lg font-blog px-3 py-2 border rounded-lg border-black'>
-                                        <NavLink to={"/" + filtered_post.categories[0].title}>
-                                            {filtered_post.categories[0].title}
+                                    <span className='text-gray-800 text-xs sm:text-base lg:text-lg inline-block md:inline font-blog px-3 py-2'>
+                                        {filtered_post.publishedAt.slice(0,10)}
+                                    </span>
+                                    <span className='text-gray-800 text-xs font-blog inline-block md:inline px-2 py-1 border rounded-lg border-black'>
+                                        <NavLink to={"/"+filtered_post.categories[0].title}>
+                                        {filtered_post.categories[0].title}
                                         </NavLink>
                                     </span>
-                                    <p className='secondary-font text-gray-800 text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
+                                    <p className='secondary-font text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
                                 </div>
                             </Link>
                         </article>

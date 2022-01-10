@@ -11,7 +11,6 @@ import Magazine_issue from "./component/Magazine_issue"
 import Subscribe from "./component/Subscribe"
 import PageNotFound from "./component/PageNotFound"
 import { Common } from "./template/Common";
-import Start from "./template/Start";
 import Events from "./component/Events";
 import Search from "./component/Search/Search";
 
@@ -22,7 +21,7 @@ function App() {
     <div className="App">
       <Router history={history}>
         <Switch>
-          <Start path="/" exact/>
+          <Common Component={Home} path="/" exact/>
           <Common Component={Home} path="/home"/>
           <Common Component={About} path="/about"/>
           <Common Component={SinglePost} path="/post/:slug"/>

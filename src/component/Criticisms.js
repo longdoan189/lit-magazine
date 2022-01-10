@@ -41,7 +41,7 @@ export default function Criticisms() {
                         <article className='px-4 py-4'>
                         <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid sm:grid-cols-6 lg:grid-cols-12">
                             <span
-                            className="block w-16 h-16 sm:w-32 sm:h-32 lg:w-48 lg:h-48 relative rounded shadow leading-snug bg-white sm:col-span-2 lg:col-span-3"
+                            className="block w-24 h-16 sm:w-40 sm:h-32 lg:w-64 lg:h-48 relative rounded shadow leading-snug bg-white sm:col-span-2 lg:col-span-3"
                             key={index}
                             >
                             <img
@@ -50,7 +50,7 @@ export default function Criticisms() {
                                 className="w-full h-full rounded-r object-cover absolute"
                             />
                             </span>
-                            <div className='sm:col-span-4 lg:col-span-9'>
+                            <div className='sm:col-span-4 lg:col-span-9 sm:ml-8 lg:ml-16 xl:ml-12'>
                             <h3 className="text-gray-800 text-xl lg:text-2xl font-blog px-3 py-2">
                                 <b>{filtered_post.title}</b>
                             </h3>
