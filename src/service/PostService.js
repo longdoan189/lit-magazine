@@ -22,24 +22,44 @@ const feature_query = `*[_type == "feature"]{
     "second": second[]->slug
 }` 
 
+const single_query = (slug) => {
+    return `*[slug.current == "${slug}"]{
+        title,
+        _id,
+        slug,
+        mainImage{
+            asset->{
+                _id,
+                url
+            }
+        },
+        body,
+        "name": author->name,
+    }`
+}
+
 export class PostService {
     getAllPosts = () => {
-        console.log("called posts")
         return axios({
             url: `https://inu5zxa1.apicdn.sanity.io/v2021-08-31/data/query/production?query=${post_query}`,
+            method: 'GET'
+        })
+    }
+
+    getSinglePost = (slug) => {
+        return axios({
+            url: `https://inu5zxa1.apicdn.sanity.io/v2021-08-31/data/query/production?query=${single_query(slug)}`,
             method: 'GET'
         })
     }
 }
 export class FeatureService {
     getFeature = () => {
-        console.log("called feature")
         return axios({
             url: `https://inu5zxa1.apicdn.sanity.io/v2021-08-31/data/query/production?query=${feature_query}`,
             method: 'GET'
         })
     }
 }
-
 export const postService = new PostService();
 export const featureService = new FeatureService();

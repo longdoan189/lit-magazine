@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {FeatureActions, PostActions} from "../../redux/actions/PostActions";
 import './Home.css'
@@ -12,7 +12,6 @@ export default function Home() {
       }, [dispatch]);
 
     const { all_post, feature_post } = useSelector(state => state.PostReducers);
-    console.log(all_post, feature_post)
     const [cur_category, set_category] = useState("all");
     
     return (
@@ -22,9 +21,9 @@ export default function Home() {
           <div className='grid'>
           {all_post &&
               all_post.filter(ap => {return ap.slug.current === feature_post.first}).map((post, index) => (
-                <article className='border px-8 py-8'>
-                  <Link to={"/post/" + post.slug.current} key={post.slug.current}>
-                    <span
+                <article className='border px-8 py-8' key={post.slug.current}>
+                  <NavLink to={"/post/" + post.slug.current} >
+                    <div
                       className="block relative h-96 rounded shadow leading-snug bg-white"
                       key={index}
                     >
@@ -33,7 +32,7 @@ export default function Home() {
                         alt={post.mainImage.alt}
                         className="w-full h-full rounded-r object-cover absolute"
                       />
-                    </span>
+                    </div>
                     <h3 className="text-gray-800 text-2xl md:text-3xl lg:text-4xl font-blog sm:px-10 py-4">
                       <b>{post.title}</b>
                     </h3>
@@ -43,7 +42,7 @@ export default function Home() {
                     <span className='text-gray-800 text-lg font-blog px-4 sm:px-10 py-4'>
                       <i>By {post.author}</i>
                     </span>
-                  </Link>
+                  </NavLink>
                 </article>
               ))}
           </div>
@@ -54,8 +53,8 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {all_post &&
               all_post.filter(ap => {return feature_post.second.includes(ap.slug.current)}).map((post, index) => (
-                <article className='border px-4 py-4'>
-                  <Link to={"/post/" + post.slug.current} key={post.slug.current}>
+                <article className='border px-4 py-4' key={post.slug.current}>
+                  <NavLink to={"/post/" + post.slug.current}>
                     <span
                       className="block h-64 relative rounded shadow leading-snug bg-white"
                       key={index}
@@ -75,7 +74,7 @@ export default function Home() {
                     <span className='text-gray-800 text-lg xl:px-5 py-4'>
                       <i>By {post.author}</i>
                     </span>
-                  </Link>
+                  </NavLink>
                 </article>
               ))}
           </div>
@@ -101,8 +100,8 @@ export default function Home() {
             <div className="col-span-5 md:col-span-10"> 
                 {all_post &&
                   all_post.filter(ap => {return ap.categories[0].title === cur_category || cur_category==="all"}).slice(0,3).map((filtered_post, index) => (
-                    <article className='px-4 py-4'>
-                      <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid sm:grid-cols-6 lg:grid-cols-12">
+                    <article className='px-4 py-4' key={filtered_post.slug.current} >
+                      <NavLink to={"/post/" + filtered_post.slug.current} className="grid sm:grid-cols-6 lg:grid-cols-12">
                         <div
                           className="block w-24 h-16 sm:w-40 sm:h-32 lg:w-64 lg:h-48 relative rounded shadow leading-snug bg-white sm:col-span-2 lg:col-span-3"
                           key={index}
@@ -124,13 +123,11 @@ export default function Home() {
                             {filtered_post.publishedAt.slice(0,10)}
                           </span>
                           <span className='text-gray-800 text-xs font-blog inline-block md:inline px-2 py-1 border rounded-lg border-black'>
-                            <NavLink to={"/"+filtered_post.categories[0].title}>
-                              {filtered_post.categories[0].title}
-                            </NavLink>
+                            {filtered_post.categories[0].title}
                           </span>
                           <p className='secondary-font text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
                         </div>
-                      </Link>
+                      </NavLink>
                     </article>
                   ))}
             </div>

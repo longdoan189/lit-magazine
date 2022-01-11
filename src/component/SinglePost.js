@@ -1,35 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import sanityClient from "../client.js";
+import { useDispatch, useSelector } from "react-redux";
 import BlockContent from "@sanity/block-content-to-react";
+import { SinglePostAction } from "../redux/actions/PostActions.js";
 
 
 export default function SinglePost() {
-  const [singlePost, setSinglePost] = useState(null);
   const { slug } = useParams();
 
-  useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[slug.current == "${slug}"]{
-            title,
-            _id,
-            slug,
-            mainImage{
-                asset->{
-                    _id,
-                    url
-                }
-            },
-            body,
-            "name": author->name,
-        }`
-      )
-      .then((data) => setSinglePost(data[0]))
-      .catch(console.error);
-  }, [slug]);
+  const dispatch = useDispatch()
 
-  console.log(singlePost);
+  useEffect(() => {
+    dispatch(SinglePostAction(slug));
+  }, [dispatch, slug]);
+
+  const { cur_post} = useSelector(state => state.PostReducers);
+  const singlePost = cur_post[0];
 
   if (!singlePost) return <div>Loading...</div>;
 
@@ -40,28 +26,30 @@ export default function SinglePost() {
           <div className="flex items-center justify-center px-8">
             <div className="bg-white rounded p-12">
               <h1 className="cursive text-3xl lg:text-5xl mb-4">
-                {singlePost.title}
+                {singlePost?.title}
               </h1>
               <div className="flex justify-center text-gray-800">
                 <p className="cursive flex items-center pl-2 text-2xl">
-                  {singlePost.name}
+                  {singlePost?.name}
                 </p>
               </div>
             </div>
           </div>
           <img
-            src={singlePost.mainImage.asset.url}
-            alt={singlePost.title}
+            src={singlePost?.mainImage?.asset?.url}
+            alt={singlePost?.title}
             className="w-full object-cover rounded-t"
           />
         </header>
+        {(singlePost ?
         <div className="secondary-font px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
           <BlockContent
-            blocks={singlePost.body}
+            blocks={singlePost?.body}
             projectId="r99w5jgb"
             dataset="production"
           />
-        </div>
+        </div> : 
+        <div></div>)}
       </article>
     </main>
   );

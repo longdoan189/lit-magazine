@@ -1,44 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import sanityClient from "../client.js";
+import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { PostActions, FeatureActions } from "../redux/actions/PostActions";
 
 export default function Post() {
-  const [postData, setPost] = useState(null);
+  const dispatch = useDispatch(); 
+      useEffect(() => {
+        dispatch(FeatureActions());
+        dispatch(PostActions());
+      }, [dispatch]);
 
-  useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[_type == "post"]{
-                title,
-                slug,
-                mainImage{
-                    asset->{
-                        _id,
-                        url
-                    },
-                    alt
-                }
-            }`
-      )
-      .then((data) => setPost(data))
-      .catch(console.error);
-  }, []);
-  console.log(postData)
+    const { all_post } = useSelector(state => state.PostReducers);
 
   return (
-    <main className="bg-green-100 min-h-screen p-12">
+    <main className="min-h-screen p-12">
       <section className="container mx-auto">
         <h1 className="text-5xl flex justify-center cursive">
-          Blog Posts Page
+          All Posts
         </h1>
         <h2 className="text-lg text-gray-600 flex justify-center mb-12">
-          Welcome to my page of blog posts
+          Welcome!
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {postData &&
-            postData.map((post, index) => (
-              <article>
-                <Link to={"/post/" + post.slug.current} key={post.slug.current}>
+          {all_post &&
+            all_post.map((post, index) => (
+              <article key={post.slug.current}>
+                <NavLink to={"/post/" + post.slug.current}>
                   <span
                     className="block h-64 relative rounded shadow leading-snug bg-white border-l-8 border-green-400"
                     key={index}
@@ -54,7 +41,7 @@ export default function Post() {
                       </h3>
                     </span>
                   </span>
-                </Link>
+                </NavLink>
               </article>
             ))}
         </div>

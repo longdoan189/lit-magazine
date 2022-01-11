@@ -1,5 +1,5 @@
 import React, { useEffect }  from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../../redux/actions/PostActions";
 import './Interview.css'
@@ -20,8 +20,8 @@ export default function Interviews() {
             <section className="container mx-auto my-10">
                 {interview_posts &&
                     interview_posts.map((filtered_post, index) => (
-                        <article className='px-4 py-4'>
-                            <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid grid-cols-2">
+                        <article className='px-4 py-4' key={filtered_post.slug.current}>
+                            <NavLink to={"/post/" + filtered_post.slug.current} className="grid grid-cols-2">
                                 <div
                                 className="block relative rounded bg-white my-auto"
                                 key={index} style={{"width": "40vw", "height": "20vw"}}
@@ -43,13 +43,11 @@ export default function Interviews() {
                                         {filtered_post.publishedAt.slice(0,10)}
                                     </span>
                                     <span className='text-gray-800 text-xs font-blog inline-block md:inline px-2 py-1 border rounded-lg border-black'>
-                                        <NavLink to={"/"+filtered_post.categories[0].title}>
                                         {filtered_post.categories[0].title}
-                                        </NavLink>
                                     </span>
                                     <p className='secondary-font text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
                                 </div>
-                            </Link>
+                            </NavLink>
                         </article>
                     ))}
             </section>

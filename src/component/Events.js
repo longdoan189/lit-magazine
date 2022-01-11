@@ -1,5 +1,5 @@
 import React, {useEffect}  from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../redux/actions/PostActions";
 
@@ -9,16 +9,17 @@ export default function Events() {
         dispatch(PostActions());
       }, [dispatch]);
     const { all_post } = useSelector(state => state.PostReducers);
+    const event_posts = all_post.filter(ap => { return ap.categories[0].title === "Events"})
     return (
         <div className='container mx-auto'>
             <div className='mt-12'>
                 <h1 className='text-5xl'>Events</h1>
             </div>
             <section className= "my-10">
-                {all_post &&
-                    all_post.map((filtered_post, index) => (
-                        <article className='pr-4 py-4'>
-                            <Link to={"/post/" + filtered_post.slug.current} key={filtered_post.slug.current} className="grid grid-cols-12 gap-12">
+                {event_posts &&
+                    event_posts.map((filtered_post, index) => (
+                        <article className='pr-4 py-4' key={filtered_post.slug.current}>
+                            <NavLink to={"/post/" + filtered_post.slug.current} className="grid grid-cols-12 gap-12">
                                 <span
                                     className="block relative rounded shadow leading-snug bg-white col-start-1 col-span-6"
                                     key={index}
@@ -30,19 +31,16 @@ export default function Events() {
                                     />
                                     
                                 </span>
-                                <div className='col-span-5'>
-                                    <h3 className="text-gray-800 text-2xl font-blog px-3 py-2">
+                                <div className='col-span-5 text-gray-800  font-blog px-3 py-2'>
+                                    <span className="text-2xl">
                                         {filtered_post.title}
-                                    </h3>
-                                    <span className='text-gray-800 text-lg font-blog px-3 py-2 block md:inline-block'>
+                                    </span>
+                                    <span className='block md:inline-block mx-2'>
                                         {filtered_post.publishedAt.slice(0, 10)}
                                     </span>
-                                    <span className='text-gray-800 text-lg font-blog px-3 py-2 border rounded-lg border-black'>
-                                        {filtered_post.author}
-                                    </span>
-                                    <p className='secondary-font text-gray-800 text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
+                                    <p className='secondary-font text-gray-800 text-lg'>{filtered_post.body.children[0].text}...</p>
                                 </div>
-                            </Link>
+                            </NavLink>
                         </article>
                     ))}
             </section>

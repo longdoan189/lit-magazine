@@ -7,34 +7,34 @@ export default function Footer() {
     return (
         <div>
             <div className='grid grid-cols-4'>
-                <img src={logo} alt="LIT Magazine" />
-                <div className="mt-5">
+                <img src={logo} alt="LIT Magazine" className='my-auto' />
+                <div className="mt-2">
                     <NavLink to="/criticisms">
-                        <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>Critique</b></p>
+                        <p className="text-base sm:text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>Critique</b></p>
                     </NavLink>
                     <NavLink to="/interviews">
-                        <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>Interview</b></p>
+                        <p className="text-base sm:text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>Interview</b></p>
                     </NavLink>
                     <NavLink to="/creative_works">
-                        <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500 "><b>Creative Works</b></p>
+                        <p className="text-base sm:text-lg md:text-2xl mt-3 hover:text-yellow-500 "><b>Creative Works</b></p>
                     </NavLink>
                 </div>
-                <div className="mt-5">
+                <div className="mt-2">
                     <NavLink to="/about">
-                        <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>About</b></p>
+                        <p className="text-base sm:text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>About</b></p>
                     </NavLink>
                     <NavLink to="/events">
-                        <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>Event</b></p>
+                        <p className="text-base sm:text-lg md:text-2xl mt-3 hover:text-yellow-500"><b>Event</b></p>
                     </NavLink>
                     {/*<NavLink to="/subscribe">
                         <button className="text-sm md:text-lg mt-2 hover:text-yellow-500 px-3 py-1 border rounded-lg border-black"><b>Subscribe</b></button>
                     </NavLink>*/}
                 </div>
-                <div className="mt-5">
-                    <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><a href="https://www.facebook.com/lit.magazine.fuv" target="_blank" rel="noopener noreferrer">
+                <div className="mt-2">
+                    <p className="text-base sm:text-lg md:text-2xl mt-3 hover:text-yellow-500"><a href="https://www.facebook.com/lit.magazine.fuv" target="_blank" rel="noopener noreferrer">
                         <b>Facebook <i className="fab fa-facebook" /></b>
                     </a></p>
-                    <p className="text-lg md:text-2xl mt-3 hover:text-yellow-500"><a href="mailto:lit.magazine.fulbright@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <p className="text-base sm:text-lg md:text-2xl mt-3 hover:text-yellow-500"><a href="mailto:lit.magazine.fulbright@gmail.com" target="_blank" rel="noopener noreferrer">
                         <b>Email</b> 
                     </a></p>
                 </div>

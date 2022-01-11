@@ -1,3 +1,4 @@
+import { history } from "../../App";
 import { featureService, postService } from "../../service/PostService";
 
 let all_post_called = false
@@ -23,6 +24,26 @@ export const PostActions = () => {
     }
 }
 
+export const SinglePostAction = (slug) => {
+    return async (dispatch) => {
+        try {
+            const result = await postService.getSinglePost(slug);
+            if (result.data.result.length === 0) {
+                history.push('/404')
+            }
+            if (result.status === 200) {
+                dispatch({
+                    type: "GET_SINGLE_POST",
+                    post: result.data.result,
+                });
+            }
+            
+        } catch (error) {
+            console.log('error', error);
+        }
+    }
+}
+
 export const FeatureActions = () => {
     return async(dispatch) => {
         if (feature_post_called) {
@@ -30,14 +51,12 @@ export const FeatureActions = () => {
         }
         try {
             const feature = await featureService.getFeature();
-            console.log(feature)
             if (feature.status === 200) {
                 dispatch({
                     type: "GET_FEATURE",
                     all_post: feature.data.result,
                 });
             }
-            console.log(feature)
             feature_post_called = true;
         }
         catch (error) {

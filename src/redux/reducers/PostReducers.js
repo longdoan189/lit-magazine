@@ -1,6 +1,7 @@
 const stateDefault = {
     all_post: [],
-    feature_post: {first: '', second: []}
+    feature_post: {first: '', second: []},
+    cur_post: {}
 }
 
 export const PostReducers = (state = stateDefault, action) => {
@@ -23,6 +24,10 @@ export const PostReducers = (state = stateDefault, action) => {
             }
             state.feature_post = holder
             return {...state }
+        }
+        case "GET_SINGLE_POST": {
+            state.cur_post = action.post
+            return {...state}
         }
         case "testing": {
             return { ...state }

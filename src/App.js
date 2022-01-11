@@ -39,6 +39,7 @@ function App() {
               return null;
           }}/>
           <Common Component={PageNotFound} path="*" exact/>
+          <Common Component={PageNotFound} path="/404"/>
         </Switch>
       </Router>
     </div>
