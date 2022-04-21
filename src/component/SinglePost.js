@@ -16,6 +16,7 @@ export default function SinglePost() {
 
   const { cur_post} = useSelector(state => state.PostReducers);
   const singlePost = cur_post[0];
+  console.log(singlePost?.body)
 
   if (!singlePost) return <div>Loading...</div>;
 
@@ -42,13 +43,13 @@ export default function SinglePost() {
           />
         </header>
         {(singlePost ?
-        <pre className="secondary-font px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
+        <div className="secondary-font px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
           <BlockContent
             blocks={singlePost?.body}
             projectId="r99w5jgb"
             dataset="production"
           />
-        </pre> : 
+        </div> : 
         <div></div>)}
       </article>
     </main>
