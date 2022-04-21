@@ -43,7 +43,7 @@ export default function SinglePost() {
           />
         </header>
         {(singlePost ?
-        <div className="secondary-font px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
+        <div className="secondary-font px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full" style={{"whiteSpace": "pre-wrap"}}>
           <BlockContent
             blocks={singlePost?.body}
             projectId="r99w5jgb"
