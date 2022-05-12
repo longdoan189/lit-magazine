@@ -16,7 +16,7 @@ export default function SinglePost() {
 
   const { cur_post} = useSelector(state => state.PostReducers);
   const singlePost = cur_post[0];
-  console.log(singlePost?.body)
+  console.log(singlePost)
 
   if (!singlePost) return <div>Loading...</div>;
 
@@ -26,13 +26,19 @@ export default function SinglePost() {
         <header className="">
           <div className="flex items-center justify-center px-8">
             <div className="bg-white rounded p-12">
-              <h1 className="cursive text-3xl lg:text-5xl mb-4">
-                {singlePost?.title}
-              </h1>
-              <div className="flex justify-center text-gray-800">
-                <p className="cursive flex items-center pl-2 text-2xl">
-                  {singlePost?.name}
-                </p>
+              <div className="text-center text-gray-800 cursive">
+                <h1 className="cursive text-3xl lg:text-5xl mb-4">
+                  {singlePost?.title}
+                </h1>
+                <h2 className="text-2xl flex">
+                  {singlePost?.name === "N/A" ? "": singlePost?.name}
+                    {singlePost?.coAuthor?.map((each, key) => (
+                        <div>
+                          <span>{singlePost?.name === "N/A" && key === 0 ? "" : ", "}</span>
+                          <span>{each}</span>
+                        </div>
+                    ))}
+                </h2>
               </div>
             </div>
           </div>
@@ -43,7 +49,7 @@ export default function SinglePost() {
           />
         </header>
         {(singlePost ?
-        <div className="secondary-font px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full" style={{"whiteSpace": "pre-wrap"}}>
+        <div className="secondary-font px-16 lg:px-48 py-12 lg:py-20 prose max-w-full text-base" style={{"whiteSpace": "pre-wrap"}}>
           <BlockContent
             blocks={singlePost?.body}
             projectId="r99w5jgb"

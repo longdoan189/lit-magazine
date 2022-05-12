@@ -11,7 +11,7 @@ export default function Post() {
       }, [dispatch]);
 
     const { all_post } = useSelector(state => state.PostReducers);
-
+  console.log(all_post)
   return (
     <main className="min-h-screen p-12">
       <section className="container mx-auto">

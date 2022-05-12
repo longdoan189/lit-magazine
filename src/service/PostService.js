@@ -7,6 +7,7 @@ const post_query = `*[_type == "post"]{
     slug,
     "body": body[0],
     "author": author->name,
+    "coAuthor": coAuthor[]->name,
     publishedAt,
     "categories": categories[]->,
     mainImage{
@@ -35,6 +36,7 @@ const single_query = (slug) => {
         },
         body,
         "name": author->name,
+        "coAuthor": coAuthor[]->name,
     }`
 }
 

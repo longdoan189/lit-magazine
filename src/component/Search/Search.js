@@ -46,9 +46,13 @@ export default function Search() {
                     <span className='text-gray-800 text-lg px-3 py-4'>
                       {post.categories[0].title}
                     </span>
-                    <span className='text-gray-800 text-lg xl:px-5 py-4'>
-                      <i>By {post.author}</i>
-                    </span>
+                     {
+                       (post.author === "N/A") ?
+                         <span></span> :
+                         <span className='text-gray-800 text-lg xl:px-5 py-4'>
+                           <i>By {post.author}</i>
+                         </span>
+                     }
                   </Link>
                 </article>
               ))}

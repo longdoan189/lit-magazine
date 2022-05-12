@@ -11,6 +11,7 @@ export default function Criticisms() {
     const [cur_sub_category, set_category] = useState("all");
     const { all_post } = useSelector(state => state.PostReducers);
     const criticism_posts = all_post.filter(ap => { return ap.categories[0].title === "Criticism"})
+    console.log(criticism_posts);
     return (
         <div>
             <div className='mt-12'>
@@ -37,7 +38,7 @@ export default function Criticisms() {
                     </div>
                     <div className="col-span-5 md:col-span-10"> 
                     {criticism_posts &&
-                    criticism_posts.filter(ap => {return ap.categories[1].title === cur_sub_category || cur_sub_category==="all"}).slice(0,3).map((filtered_post, index) => (
+                    criticism_posts.filter(ap => {return ap.categories[1]?.title === cur_sub_category || cur_sub_category==="all"}).slice(0,3).map((filtered_post, index) => (
                         <article className='px-4 py-4' key={filtered_post.slug.current}>
                             <NavLink to={"/post/" + filtered_post.slug.current}  className="grid sm:grid-cols-6 lg:grid-cols-12">
                                 <span
@@ -54,9 +55,13 @@ export default function Criticisms() {
                                 <h3 className="text-gray-800 text-xl lg:text-2xl font-blog px-3 py-2">
                                     <b>{filtered_post.title}</b>
                                 </h3>
-                                <span className='text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>
-                                    <i>By {filtered_post.author}</i>
-                                </span>
+                                {
+                                    (filtered_post.author === "N/A") ?
+                                    <span></span> :
+                                    <span className='text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>
+                                        <i>By {filtered_post.author}</i>
+                                    </span>
+                                }
                                 <span className='text-gray-800 text-xs sm:text-base lg:text-lg inline-block md:inline font-blog px-3 py-2'>
                                     {filtered_post.publishedAt.slice(0,10)}
                                 </span>

@@ -8,6 +8,7 @@
  *    type: 'blockContent'
  *  }
  */
+
 export default {
   title: 'Block Content',
   name: 'blockContent',
@@ -26,6 +27,8 @@ export default {
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
+        {title: 'H5', value: 'h5'},
+        {title: 'H6', value: 'h6'},
         {title: 'Quote', value: 'blockquote'},
       ],
       lists: [
@@ -38,7 +41,7 @@ export default {
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
-          {title: 'Underline', value: 'underline'}
+          {title: 'Underline', value: 'underline'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [

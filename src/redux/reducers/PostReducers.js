@@ -12,6 +12,7 @@ export const PostReducers = (state = stateDefault, action) => {
                     new Date(b.publishedAt).getTime()
             }).reverse();
             state.all_post = all_post_sorted;
+            console.log(all_post_sorted);
             return { ...state }
         }
         case "GET_FEATURE": {
@@ -26,7 +27,8 @@ export const PostReducers = (state = stateDefault, action) => {
             return {...state }
         }
         case "GET_SINGLE_POST": {
-            state.cur_post = action.post
+            state.cur_post = action.post;
+            console.log(action.post);
             return {...state}
         }
         case "testing": {

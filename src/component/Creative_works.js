@@ -22,7 +22,11 @@ export default function Creative_works() {
                     creative_works_posts.map((post, index) => (
                         <Link to={"/post/" + post.slug.current} key={post.slug.current} className="grid grid-cols-3 sm:grid-cols-12">
                             <div className='text-2xl sm:text-3xl lg:text-5xl col-span-2 sm:col-span-8 my-auto'>{post.title}</div>
-                            <div className='text-lg lg:text-3xl sm:col-start-10 sm:col-span-4 my-auto'>{post.author}</div>
+                            {
+                                (post.author === "N/A") ?
+                                <div></div> :
+                                <div className='text-lg lg:text-3xl sm:col-start-10 sm:col-span-4 my-auto'>{post.author}</div>
+                            }
                         </Link>
                 ))}
             </div>

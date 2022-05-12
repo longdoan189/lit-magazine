@@ -36,9 +36,13 @@ export default function Interviews() {
                                     <h3 className="text-gray-800 text-xl lg:text-2xl font-blog px-3 pb-2">
                                         <b>{filtered_post.title}</b>
                                     </h3>
-                                    <span className='text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>
-                                        <i>By {filtered_post.author}</i>
-                                    </span>
+                                    {
+                                        (filtered_post.author === "N/A") ?
+                                        <span></span> :
+                                        <span className='text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>
+                                            <i>By {filtered_post.author}</i>
+                                        </span>
+                                    }
                                     <span className='text-gray-800 text-xs sm:text-base lg:text-lg inline-block md:inline font-blog px-3 py-2'>
                                         {filtered_post.publishedAt.slice(0,10)}
                                     </span>

@@ -1,3 +1,16 @@
+const decodeAssetId = id => { //measure image size
+  const [, assetId, dimensions, format] = pattern.exec(id)
+  const [width, height] = dimensions.split("x").map(v => parseInt(v, 10))
+
+  return {
+    assetId,
+    dimensions: { width, height },
+    format,
+  }
+}
+const pattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/
+
+
 export default {
   name: 'post',
   title: 'Post',
@@ -26,13 +39,24 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
+      name: 'coAuthor',
+      title: 'Co Author',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'author'}}],
+    },
+    {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
       options: {
         hotspot: true,
+        accept: '.jpg.jpeg'
       },
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.required().custom(image => {
+        if (!image) return true
+        const { dimensions } = decodeAssetId(image.asset._ref)
+        return (dimensions.width < 1200 && dimensions.height < 800) || "Image must be smaller (1200x800)"
+      })
     },
     {
       name: 'categories',
@@ -65,7 +89,7 @@ export default {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage',
+      media: 'mainImage'
     },
     prepare(selection) {
       const {author} = selection
