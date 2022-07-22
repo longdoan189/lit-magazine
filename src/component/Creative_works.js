@@ -2,8 +2,9 @@ import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../redux/actions/PostActions";
-
+import { useTranslation } from 'react-i18next';
 export default function Creative_works() {
+    const { t } = useTranslation();
     const dispatch = useDispatch(); 
       useEffect(() => {
         dispatch(PostActions());
@@ -13,7 +14,7 @@ export default function Creative_works() {
     return (
         <div>
             <div className='mt-12'>
-                <h1 className='text-5xl text-center'>Creative works</h1>
+                <h1 className='text-5xl text-center'>{t("Creative works")}</h1>
                 <p className='text-3xl mx-4 sm:mx-32 lg:mx-64 my-12 secondary-font'>‘Creative work’ features all original works that embrace the experimental spirit, welcoming all markers to create new imaginary world visions in their mind. Here the spiritual rocks! </p>
             </div>
 

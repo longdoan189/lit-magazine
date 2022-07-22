@@ -30,7 +30,7 @@ export default function SinglePost() {
                 <h1 className="cursive text-3xl lg:text-5xl mb-4">
                   {singlePost?.title}
                 </h1>
-                <h2 className="text-2xl flex">
+                <h2 className="text-2xl text-center">
                   {singlePost?.name === "N/A" ? "": singlePost?.name}
                     {singlePost?.coAuthor?.map((each, key) => (
                         <div>

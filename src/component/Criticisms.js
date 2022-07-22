@@ -2,8 +2,10 @@ import React, { useState, useEffect }  from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../redux/actions/PostActions";
+import { useTranslation } from 'react-i18next';
 
 export default function Criticisms() {
+    const { t } = useTranslation();
     const dispatch = useDispatch(); 
       useEffect(() => {
         dispatch(PostActions());
@@ -15,7 +17,7 @@ export default function Criticisms() {
     return (
         <div>
             <div className='mt-12'>
-                <h1 className='text-5xl text-center'>Criticisms</h1>
+                <h1 className='text-5xl text-center'>{t("Criticisms")}</h1>
                 <p className='text-3xl mx-4 sm:mx-32 lg:mx-64 my-12 secondary-font'>Criticism is one of LIT Magazine’s main focuses. The category centres on original ideas and voices inspired by works of literature, mixed-media art work and recommendations on good works about the arts, written by LIT Magazine’s dedicated writers and contributors. </p>
             </div>
             {/*<img src={grand_image} alt="CRITICISM @LIT MAGAZINE" className='w-full' />*/}
@@ -66,7 +68,7 @@ export default function Criticisms() {
                                     {filtered_post.publishedAt.slice(0,10)}
                                 </span>
                                 <span className='text-gray-800 text-xs font-blog inline-block md:inline px-2 py-1 border rounded-lg border-black'>
-                                    {filtered_post.categories[0].title}
+                                    {t(filtered_post.categories[0].title)}
                                 </span>
                                 <p className='secondary-font text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
                                 </div>

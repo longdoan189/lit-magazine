@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FeatureActions, PostActions } from "../../redux/actions/PostActions";
 import './Home.css'
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(FeatureActions());
@@ -37,7 +39,7 @@ export default function Home() {
                     <b>{post.title}</b>
                   </h3>
                   <span className='text-gray-800 text-lg font-blog sm:px-10 py-4'>
-                    {post.categories[0].title}
+                    {t(post.categories[0].title)}
                   </span>
                   {
                     (post.author === "N/A") ?
@@ -73,7 +75,7 @@ export default function Home() {
                     <b>{post.title}</b>
                   </h3>
                   <span className='text-gray-800 text-lg px-3 py-4'>
-                    {post.categories[0].title}
+                    {t(post.categories[0].title)}
                   </span>
                   {
                     (post.author === "N/A") ?
@@ -91,18 +93,18 @@ export default function Home() {
       <section className="container mx-auto mt-20">
         <div className="grid grid-cols-6 md:grid-cols-12 gap-1">
           <div className="col-span-10 md:col-span-2 p-12 md:p-0">
-            <div className='text-2xl lg:text-5xl'>Latest articles</div>
+            <div className='text-2xl lg:text-5xl'>{t("Latest articles")}</div>
             <div className=''>
-              <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "all" ? "border border-b-2" : "")} onClick={() => { set_category("all") }}>All</button>
+              <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "all" ? "border border-b-2" : "")} onClick={() => { set_category("all") }}>{t("All")}</button>
             </div>
             <div className=''>
-              <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "Criticism" ? "border border-b-2" : "")} onClick={() => { set_category("Criticism") }}>Criticism</button>
+              <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "Criticism" ? "border border-b-2" : "")} onClick={() => { set_category("Criticism") }}>{t("Criticism")}</button>
             </div>
             <div className=''>
-              <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "Interview" ? "border border-b-2" : "")} onClick={() => { set_category("Interview") }}>Interview</button>
+              <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "Interview" ? "border border-b-2" : "")} onClick={() => { set_category("Interview") }}>{t("Interview")}</button>
             </div>
             <div className=''>
-              <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "Creative works" ? "border border-b-2" : "")} onClick={() => { set_category("Creative works") }}>Creative works</button>
+              <button className={'text-xl lg:text-2xl mt-1 mb-2 text-left' + (cur_category === "Creative works" ? "border border-b-2" : "")} onClick={() => { set_category("Creative works") }}>{t("Creative works")}</button>
             </div>
           </div>
           <div className="col-span-5 md:col-span-10">
@@ -135,7 +137,7 @@ export default function Home() {
                         {filtered_post.publishedAt.slice(0, 10)}
                       </span>
                       <span className='text-gray-800 text-xs font-blog inline-block md:inline px-2 py-1 border rounded-lg border-black'>
-                        {filtered_post.categories[0].title}
+                        {t(filtered_post.categories[0].title)}
                       </span>
                       <p className='secondary-font text-gray-800 text-xs sm:text-base lg:text-lg font-blog px-3 py-2'>{filtered_post.body.children[0].text}...</p>
                     </div>

@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import {PostActions} from "../../redux/actions/PostActions";
 import './Interview.css'
+import { useTranslation } from 'react-i18next';
 
 export default function Interviews() {
+    const { t } = useTranslation();
     const dispatch = useDispatch(); 
       useEffect(() => {
         dispatch(PostActions());
@@ -14,7 +16,7 @@ export default function Interviews() {
     return (
         <div>
             <div className='mt-12'>
-                <h1 className='text-5xl text-center'>Interviews</h1>
+                <h1 className='text-5xl text-center'>{t("Interviews")}</h1>
                 <p className='text-3xl mx-4 sm:mx-32 lg:mx-64 my-12 secondary-font'>‘Interview’ features all LIT Magazine’s meeting notes, transferring ideas from the talks with dedicated writers and researchers. </p>
             </div>
             <section className="container mx-auto my-10">
