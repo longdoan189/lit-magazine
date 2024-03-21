@@ -55,7 +55,7 @@ export default {
       validation: Rule => Rule.required().custom(image => {
         if (!image) return true
         const { dimensions } = decodeAssetId(image.asset._ref)
-        return (dimensions.width < 1200 && dimensions.height < 800) || "Image must be smaller (1200x800)"
+        return (dimensions.width < 3000 && dimensions.height < 3000) || "Image must be smaller (3000x3000)"
       })
     },
     {
